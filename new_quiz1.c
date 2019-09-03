@@ -1,42 +1,20 @@
 #include <stdio.h>
-
-struct value_next
+#include <string.h>
+struct holder
 {
 	int value;
-	struct value_next * next;
+	char * sentence;
 };
-
-struct value_next * root;
 
 int main(int argc, char * argv[])
 {
-	struct value_next * curr;
-	if(root != NULL)
-	{
-		curr = root;
-	}
+	struct holder curr;
 	int i = 0;
-	while(i < 10)
+	curr.value = 1;
+	curr.sentence = "Ian Is The Greatest Of \0 All Time.\n";
+	while(i < strlen(curr.sentence))
 	{
-		struct value_next tmp;
-		tmp.value = i++;
-
-		if (root == (struct value_next *)NULL)
-		{
-			root = &tmp;
-		}
-		else
-		{
-			curr -> next = &tmp;
-		}
+		printf("%s ", &curr.sentence[i]);
+		i++;
 	}
-
-	struct value_next * current;
-	current = root;
-	while(current != NULL)
-	{
-		printf("%d ", current -> value);
-		current = current -> next;
-	}
-	printf("\n");
 }
