@@ -9,12 +9,13 @@ struct holder
 int main(int argc, char * argv[])
 {
 	struct holder curr;
-	int i = 0;
 	curr.value = 1;
-	curr.sentence = "Ian Is The Greatest Of \0 All Time.\n";
+	curr.sentence = "SSH my\0pi\n";
+	int i = curr.value;
 	while(i < strlen(curr.sentence))
 	{
 		printf("%s ", &curr.sentence[i]);
 		i++;
 	}
+	printf("\ncurr.value = %d", i);
 }
